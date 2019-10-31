@@ -110,7 +110,7 @@
 		extraAllowedContent: 'img[width,height,align]',
 
 		// Enabling extra plugins, available in the full-all preset: http://ckeditor.com/presets-all
-		extraPlugins: 'table,dialog,uploadimage,uploadfile,templates,tableresizerowandcolumn,ruler,lineheight,bt_table,btquicktable',
+		extraPlugins: 'dialog,uploadimage,uploadfile,templates,bt_table,tableresizerowandcolumn,ruler,lineheight,panelbutton,floatpanel,btquicktable',
 
 		/*********************** File management support ***********************/
 		// In order to turn on support for file uploads, CKEditor has to be configured to use some server side
@@ -128,9 +128,13 @@
 		// An array of stylesheets to style the WYSIWYG area.
 		// Note: it is recommended to keep your own styles in a separate file in order to make future updates painless.
 		contentsCss: [ 
-			'https://cdn.ckeditor.com/4.8.0/full-all/contents.css', /*'mystyles.css'*/ 
-
+			'https://cdn.ckeditor.com/4.8.0/full-all/contents.css', 
+			'custom-styles.css' 
 		],
+
+		// qtquicktable plugin configs not working
+		qtBordered: true,      // table is bordered by default      
+	   	qtCondensed: true,
 
 		// This is optional, but will let us define multiple different styles for multiple editors using the same CSS file.
 		// bodyClass: 'document-editor',
@@ -181,6 +185,7 @@
 		],
 		// linehieght plugin
 		// line_height: "1em;1.1em;1.2em;1.3em;1.4em;1.5em"
+
 	} );
 
 	// CKEDITOR.config.ruler = {
@@ -195,6 +200,7 @@
 	//         bottom: 20  // bottom 'canvas' padding (px)
 	//     }
 	// };
+
 
 </script>
 </body>

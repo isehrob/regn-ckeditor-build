@@ -5,6 +5,7 @@
 
 CKEDITOR.plugins.add( 'bt_table', {
   requires: 'dialog,table',
+  lang: 'en',
   icons: 'table', // %REMOVE_LINE_CORE%
   hidpi: true, // %REMOVE_LINE_CORE%
     init: function( editor ) {
