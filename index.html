@@ -77,6 +77,7 @@
 	CKEDITOR.plugins.addExternal( 'lineheight',  ROOT + '/plugins/lineheight/plugin.js' );
 	CKEDITOR.plugins.addExternal( 'bt_table',  ROOT + '/plugins/bt_table/plugin.js' );
 	CKEDITOR.plugins.addExternal( 'btquicktable',  ROOT + '/plugins/btquicktable/plugin.js' );
+	CKEDITOR.plugins.addExternal( 'base64image',  ROOT + '/plugins/base64image/plugin.js' );
 
 	CKEDITOR.replace( 'editor1', {
 		// Define the toolbar: http://docs.ckeditor.com/ckeditor4/docs/#!/guide/dev_toolbar
@@ -91,7 +92,7 @@
 			{ name: 'align', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
 			{ name: 'links', items: [ 'Link', 'Unlink' ] },
 			{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
-			{ name: 'insert', items: [ 'Image', 'Table' ] },
+			{ name: 'insert', items: [ 'base64image', 'Table' ] },
 			{ name: 'tools', items: [ 'Maximize' ] },
 			{ name: 'editing', items: [ 'Scayt' ] }
 		],
@@ -110,7 +111,7 @@
 		extraAllowedContent: 'img[width,height,align]',
 
 		// Enabling extra plugins, available in the full-all preset: http://ckeditor.com/presets-all
-		extraPlugins: 'dialog,uploadimage,uploadfile,templates,bt_table,tableresizerowandcolumn,ruler,lineheight,panelbutton,floatpanel,btquicktable',
+		extraPlugins: 'dialog,uploadimage,uploadfile,templates,bt_table,tableresizerowandcolumn,ruler,lineheight,panelbutton,floatpanel,btquicktable,base64image',
 
 		/*********************** File management support ***********************/
 		// In order to turn on support for file uploads, CKEditor has to be configured to use some server side
