@@ -19,7 +19,6 @@ CKEDITOR.plugins.add('ruler', {
     init: function(editor) {
         var width = 800;
         var configs = getConfigs(editor.config.ruler);
-
         editor.addContentsCss(this.path + 'styles/editor-iframe-styles.css');
         editor.on('instanceReady', function() {
             var $ckeContent = $(editor.element.$).siblings('.cke').find('.cke_contents');

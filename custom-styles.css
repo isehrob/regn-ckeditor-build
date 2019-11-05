@@ -1,3 +1,15 @@
+/* Minimal styling to center the editor in this sample */
+body {
+	padding: 30px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+}
+
+.container {
+	margin: 0 auto;
+}
+
 table {
 	border-collapse: collapse;
 }
