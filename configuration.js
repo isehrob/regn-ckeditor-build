@@ -1,10 +1,11 @@
 
 window.onload = function() {
-    let ROOT = window.location.href;
-    if (ROOT.endsWith('.html')) {
-        const location = ROOT.split('/');
-        ROOT = location.splice(-1) && location.join('/')
-    }
+    // let ROOT = window.location.href;
+    // if (ROOT.endsWith('.html')) {
+    //     const location = ROOT.split('/');
+    //     ROOT = location.splice(-1) && location.join('/')
+    // }
+    const ROOT = "https://isehrob.github.io/regn-ckeditor-build";
     // Enable local "abbr" plugin from /myplugins/abbr/ folder.
     CKEDITOR.plugins.addExternal( 'tableresizerowandcolumn',  ROOT + '/plugins/tableresizerowandcolumn/plugin.js' );
     CKEDITOR.plugins.addExternal( 'ruler',  ROOT + '/plugins/simple-ruler/plugin.js' );
@@ -63,7 +64,6 @@ window.onload = function() {
         // An array of stylesheets to style the WYSIWYG area.
         // Note: it is recommended to keep your own styles in a separate file in order to make future updates painless.
         contentsCss: [
-            'https://cdn.ckeditor.com/4.8.0/full-all/contents.css'
         ],
 
         // qtquicktable plugin configs not working
