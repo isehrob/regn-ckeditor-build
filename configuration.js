@@ -1,11 +1,11 @@
 
 window.onload = function() {
-    // let ROOT = window.location.href;
-    // if (ROOT.endsWith('.html')) {
-    //     const location = ROOT.split('/');
-    //     ROOT = location.splice(-1) && location.join('/')
-    // }
-    const ROOT = "https://isehrob.github.io/regn-ckeditor-build";
+    let ROOT = window.location.href;
+    if (ROOT.endsWith('.html')) {
+        const location = ROOT.split('/');
+        ROOT = location.splice(-1) && location.join('/')
+    }
+    // const ROOT = "https://isehrob.github.io/regn-ckeditor-build";
     // Enable local "abbr" plugin from /myplugins/abbr/ folder.
     CKEDITOR.plugins.addExternal( 'tableresizerowandcolumn',  ROOT + '/plugins/tableresizerowandcolumn/plugin.js' );
     CKEDITOR.plugins.addExternal( 'ruler',  ROOT + '/plugins/simple-ruler/plugin.js' );
@@ -13,6 +13,7 @@ window.onload = function() {
     CKEDITOR.plugins.addExternal( 'bt_table',  ROOT + '/plugins/bt_table/plugin.js' );
     CKEDITOR.plugins.addExternal( 'btquicktable',  ROOT + '/plugins/btquicktable/plugin.js' );
     CKEDITOR.plugins.addExternal( 'base64image',  ROOT + '/plugins/base64image/plugin.js' );
+    CKEDITOR.plugins.addExternal( 'imageresizerowandcolumn',  ROOT + '/plugins/imageresizerowandcolumn/plugin.js' );
 
     CKEDITOR.replace( 'editor1', {
         // Define the toolbar: http://docs.ckeditor.com/ckeditor4/docs/#!/guide/dev_toolbar
@@ -27,7 +28,7 @@ window.onload = function() {
             { name: 'align', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
             { name: 'links', items: [ 'Link', 'Unlink' ] },
             { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
-            { name: 'insert', items: [ 'base64image', 'Table' ] },
+            { name: 'insert', items: [ 'base64image', 'Table', 'PasteFromWord' ] },
             { name: 'tools', items: [ 'Maximize' ] },
             { name: 'editing', items: [ 'Scayt' ] }
         ],
@@ -46,7 +47,7 @@ window.onload = function() {
         extraAllowedContent: 'img[width,height,align]',
 
         // Enabling extra plugins, available in the full-all preset: http://ckeditor.com/presets-all
-        extraPlugins: 'dialog,uploadimage,uploadfile,templates,bt_table,tableresizerowandcolumn,ruler,lineheight,panelbutton,floatpanel,btquicktable,base64image',
+        extraPlugins: 'pastefromword,imageresizerowandcolumn,dialog,uploadimage,templates,bt_table,tableresizerowandcolumn,ruler,lineheight,panelbutton,floatpanel,btquicktable,base64image',
 
         /*********************** File management support ***********************/
         // In order to turn on support for file uploads, CKEditor has to be configured to use some server side
@@ -116,22 +117,6 @@ window.onload = function() {
             },
             { name: 'Borderless Table', element: 'table', styles: { 'border-style': 'hidden', 'background-color': '#E6E6FA' } },
             { name: 'Square Bulleted List', element: 'ul', styles: { 'list-style-type': 'square' } }
-        ],
-        // linehieght plugin
-        // line_height: "1em;1.1em;1.2em;1.3em;1.4em;1.5em"
-
+        ]
     } );
-
-// CKEDITOR.config.ruler = {
-//     values: 21,     // segment number of the ruler
-//     step: 0.25,     // accuracy of sliders
-//     sliders: {
-//         left: 2,    // left slider value
-//         right: 19   // right slider value (21-19 = 2)
-//     },
-//     padding: {
-//         top: 20,    // top 'canvas' padding (px)
-//         bottom: 20  // bottom 'canvas' padding (px)
-//     }
-// };
 };
