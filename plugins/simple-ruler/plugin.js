@@ -17,9 +17,13 @@
 CKEDITOR.plugins.add('ruler', {
     icons: 'tablewidths',
     init: function(editor) {
-        var width = 800;
         var configs = getConfigs(editor.config.ruler);
-        editor.addContentsCss(this.path + 'styles/editor-iframe-styles.css');
+        var width = configs.wide ? 1200 : 800;
+        if (configs.wide) {
+            editor.addContentsCss(this.path + 'styles/editor-iframe-wide-styles.css');
+        } else {
+            editor.addContentsCss(this.path + 'styles/editor-iframe-styles.css');
+        }
         editor.on('instanceReady', function() {
             var $ckeContent = $(editor.element.$).siblings('.cke').find('.cke_contents');
             $ckeContent.prepend('<div id="cke_ruler_wrap"></div>');

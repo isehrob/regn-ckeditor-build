@@ -81,6 +81,15 @@ window.onload = function() {
         // Simplify the Image and Link dialog windows. The "Advanced" tab is not needed in most cases.
         removeDialogTabs: 'image:advanced;link:advanced',
 
+        ruler: {
+            wide: true,
+            values: 28,
+            sliders: {
+                left: 2, // left slider value
+                right: 26 // right slider value (21-19 = 2)
+            }
+        },
+
         // Define the list of styles which should be available in the Styles dropdown list.
         // If the "class" attribute is used to style an element, make sure to define the style for the class in "mystyles.css"
         // (and on your website so that it rendered in the same way).
