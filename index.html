@@ -61,8 +61,11 @@
         let ROOT = window.location.href;
         if (ROOT.endsWith('.html')) {
             const location = ROOT.split('/');
-            ROOT = location.splice(-1).filter( el => el.trim() !== '') && location.join('/')
+            ROOT = location.splice(-1) && location.join('/');
         }
+        if (ROOT.endsWith('/')) {
+        	ROOT = ROOT.substring(0, ROOT.length - 1);
+		}
         CKEDITOR.plugins.addExternal('tableresizerowandcolumn', ROOT + '/plugins/tableresizerowandcolumn/plugin.js');
         CKEDITOR.plugins.addExternal('ruler', ROOT + '/plugins/simple-ruler/plugin.js');
         CKEDITOR.plugins.addExternal('lineheight', ROOT + '/plugins/lineheight/plugin.js');
