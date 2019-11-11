@@ -61,7 +61,7 @@
         let ROOT = window.location.href;
         if (ROOT.endsWith('.html')) {
             const location = ROOT.split('/');
-            ROOT = location.splice(-1) && location.join('/')
+            ROOT = location.splice(-1).filter( el => el.trim() !== '') && location.join('/')
         }
         CKEDITOR.plugins.addExternal('tableresizerowandcolumn', ROOT + '/plugins/tableresizerowandcolumn/plugin.js');
         CKEDITOR.plugins.addExternal('ruler', ROOT + '/plugins/simple-ruler/plugin.js');
