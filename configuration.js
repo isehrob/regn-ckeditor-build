@@ -48,9 +48,10 @@ window.CKeditorConfig = {
 
     // An array of stylesheets to style the WYSIWYG area.
     // Note: it is recommended to keep your own styles in a separate file in order to make future updates painless.
-    // contentsCss: [
-    //     'custom-styles.css',
-    // ],
+    contentsCss: [
+        'https://cdn.ckeditor.com/4.8.0/full-all/contents.css',
+        'custom-styles.css',
+    ],
 
     // qtquicktable plugin configs not working
     qtBordered: true,      // table is bordered by default
@@ -71,36 +72,5 @@ window.CKeditorConfig = {
     // Note: by default CKEditor looks for styles.js file. Defining stylesSet inline (as below) stops CKEditor from loading
     // that file, which means one HTTP request less (and a faster startup).
     // For more information see http://docs.ckeditor.com/ckeditor4/docs/#!/guide/dev_styles
-    stylesSet: [
-        /* Inline Styles */
-        { name: 'Marker', element: 'span', attributes: { 'class': 'marker' } },
-        { name: 'Cited Work', element: 'cite' },
-        { name: 'Inline Quotation', element: 'q' },
 
-        /* Object Styles */
-        {
-            name: 'Special Container',
-            element: 'div',
-            styles: {
-                padding: '5px 10px',
-                background: '#eee',
-                border: '1px solid #ccc'
-            }
-        },
-        {
-            name: 'Compact table',
-            element: 'table',
-            attributes: {
-                cellpadding: '5',
-                cellspacing: '0',
-                border: '1',
-                bordercolor: '#ccc'
-            },
-            styles: {
-                'border-collapse': 'collapse'
-            }
-        },
-        { name: 'Borderless Table', element: 'table', styles: { 'border-style': 'hidden', 'background-color': '#E6E6FA' } },
-        { name: 'Square Bulleted List', element: 'ul', styles: { 'list-style-type': 'square' } }
-    ]
 };

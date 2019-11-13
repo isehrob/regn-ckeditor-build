@@ -4,12 +4,6 @@
 * 
 */
 
-#cke_ruler_wrap {
-    width: 780px;
-    margin: 0 auto;
-    display: block;
-}
-
 .cke_wysiwyg_frame {
     height: calc(100% - 50px) !important;
     margin-top: 15px !important;

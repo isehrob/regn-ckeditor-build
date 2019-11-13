@@ -9,25 +9,27 @@
  * - jquery (github.com/jquery/jquery) for DOM traversing
  */
 
-// window.noUiSlider = require('nouislider');
-// if (!window.$) {
-//     window.$ = require('jquery');
-// }
-
 CKEDITOR.plugins.add('ruler', {
     icons: 'tablewidths',
     init: function(editor) {
-        var configs = getConfigs(editor.config.ruler);
-        var width = configs.wide ? 1200 : 800;
-        if (configs.wide) {
-            editor.addContentsCss(this.path + 'styles/editor-iframe-wide-styles.css');
-        } else {
-            editor.addContentsCss(this.path + 'styles/editor-iframe-styles.css');
-        }
+        const configs = getConfigs(editor.config.ruler);
+        const width = configs.wide ? 1200 : 800;
+
+        editor.addContentsCss(this.path + 'styles/editor-iframe-styles.css');
         editor.on('instanceReady', function() {
-            var $ckeContent = $(editor.element.$).siblings('.cke').find('.cke_contents');
-            $ckeContent.prepend('<div id="cke_ruler_wrap"></div>');
-            var range = document.getElementById('cke_ruler_wrap');
+            // fixing editor content styles
+            editor.document.$.documentElement.style.cssText = `
+                width: ${width}px; margin: 0 auto;
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+                min-height: 100%;
+                height: auto !important;
+            `;
+
+            var $ckeContent = $(editor.element.$).next().find('.cke_contents');
+            $ckeContent.prepend(
+                `<div id="${editor.config.ruler.id}" style="width: ${width}px; margin: 0 auto;display: block;"></div>`
+            );
+            var range = document.getElementById(editor.config.ruler.id);
             setPadding([configs.sliders.left, configs.sliders.right]);
             noUiSlider.create(range, {
                 start: [configs.sliders.left, configs.sliders.right],
@@ -71,6 +73,7 @@ CKEDITOR.plugins.add('ruler', {
 
         function getConfigs(config) {
             var defaultConfig = {
+                id: 'cke_ruler_wrap',
                 values: 21, // segment number of the ruler
                 step: 0.25, // accuracy of sliders
                 sliders: {
