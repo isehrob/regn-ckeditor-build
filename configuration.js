@@ -72,5 +72,5 @@ window.CKeditorConfig = {
     // Note: by default CKEditor looks for styles.js file. Defining stylesSet inline (as below) stops CKEditor from loading
     // that file, which means one HTTP request less (and a faster startup).
     // For more information see http://docs.ckeditor.com/ckeditor4/docs/#!/guide/dev_styles
-
+    line_height: '1;1.15;1.5;2;2.5;3;3.5;4;4.5;5'
 };
