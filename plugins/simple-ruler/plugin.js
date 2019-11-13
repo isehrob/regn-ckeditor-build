@@ -13,13 +13,11 @@ CKEDITOR.plugins.add('ruler', {
     icons: 'tablewidths',
     init: function(editor) {
         const configs = getConfigs(editor.config.ruler);
-        const width = configs.wide ? 1200 : 800;
-
         editor.addContentsCss(this.path + 'styles/editor-iframe-styles.css');
         editor.on('instanceReady', function() {
             // fixing editor content styles
             editor.document.$.documentElement.style.cssText = `
-                width: ${width}px; margin: 0 auto;
+                width: ${configs.width}px; margin: 0 auto;
                 box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
                 min-height: 100%;
                 height: auto !important;
@@ -27,9 +25,9 @@ CKEDITOR.plugins.add('ruler', {
 
             var $ckeContent = $(editor.element.$).next().find('.cke_contents');
             $ckeContent.prepend(
-                `<div id="${editor.config.ruler.id}" style="width: ${width}px; margin: 0 auto;display: block;"></div>`
+                `<div id="${configs.id}" style="width: ${configs.width}px; margin: 0 auto;display: block;"></div>`
             );
-            var range = document.getElementById(editor.config.ruler.id);
+            var range = document.getElementById(configs.id);
             setPadding([configs.sliders.left, configs.sliders.right]);
             noUiSlider.create(range, {
                 start: [configs.sliders.left, configs.sliders.right],
@@ -65,8 +63,8 @@ CKEDITOR.plugins.add('ruler', {
                 configs.sliders.left = parseFloat(values[0]);
                 configs.sliders.right = parseFloat(values[1]);
             }
-            var left = (width / configs.values) * configs.sliders.left;
-            var right = (width / configs.values) * (configs.values - configs.sliders.right);
+            var left = (configs.width / configs.values) * configs.sliders.left;
+            var right = (configs.width / configs.values) * (configs.values - configs.sliders.right);
             editor.document.getBody().setStyle('padding', configs.padding.top + 'px ' + right + 'px ' + configs.padding.bottom + 'px ' + left + 'px');
             editor.fire('updateRuler', configs.sliders);
         }
@@ -76,6 +74,7 @@ CKEDITOR.plugins.add('ruler', {
                 id: 'cke_ruler_wrap',
                 values: 21, // segment number of the ruler
                 step: 0.25, // accuracy of sliders
+                width: 780,
                 sliders: {
                     left: 2, // left slider value
                     right: 19 // right slider value (21-19 = 2)
