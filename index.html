@@ -87,9 +87,9 @@
 		&lt;p&gt;&lt;strong&gt;Bilancino Hotel&lt;/strong&gt;&lt;/p&gt;
 	</textarea>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/9.0.0/nouislider.min.js" integrity="sha256-QJ/koHL0c1W+QlMk6fXToDM3hYAQC+meKTIOl+PSU+Q=" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="  crossorigin="anonymous"></script>
-<script src="https://cdn.ckeditor.com/4.8.0/full-all/ckeditor.js"></script>
+<script src="nouislider.min.js"></script>
+<script src="jquery-2.2.4.min.js"></script>
+<script src="ckeditor/ckeditor.js"></script>
 <script src="configuration.js"></script>
 <!--<script src="configuration.js"></script>-->
 <script>
@@ -102,14 +102,14 @@
         if (ROOT.endsWith('/')) {
         	ROOT = ROOT.substring(0, ROOT.length - 1);
 		}
-        CKEDITOR.plugins.addExternal('tableresizerowandcolumn', ROOT + '/plugins/tableresizerowandcolumn/plugin.js');
-        CKEDITOR.plugins.addExternal('ruler', ROOT + '/plugins/simple-ruler/plugin.js');
-        CKEDITOR.plugins.addExternal('lineheight', ROOT + '/plugins/lineheight/plugin.js');
-        CKEDITOR.plugins.addExternal('bt_table', ROOT + '/plugins/bt_table/plugin.js');
-        CKEDITOR.plugins.addExternal('btquicktable', ROOT + '/plugins/btquicktable/plugin.js');
-        CKEDITOR.plugins.addExternal('base64image', ROOT + '/plugins/base64image/plugin.js');
-        CKEDITOR.plugins.addExternal('imageresizerowandcolumn', ROOT + '/plugins/imageresizerowandcolumn/plugin.js');
-        CKEDITOR.plugins.addExternal('textindent', ROOT + '/plugins/textindent/plugin.js');
+        CKEDITOR.plugins.addExternal('tableresizerowandcolumn', ROOT + '/ckeditor/plugins/tableresizerowandcolumn/plugin.js');
+        CKEDITOR.plugins.addExternal('ruler', ROOT + '/ckeditor/plugins/simple-ruler/plugin.js');
+        CKEDITOR.plugins.addExternal('lineheight', ROOT + '/ckeditor/plugins/lineheight/plugin.js');
+        CKEDITOR.plugins.addExternal('bt_table', ROOT + '/ckeditor/plugins/bt_table/plugin.js');
+        CKEDITOR.plugins.addExternal('btquicktable', ROOT + '/ckeditor/plugins/btquicktable/plugin.js');
+        CKEDITOR.plugins.addExternal('base64image', ROOT + '/ckeditor/plugins/base64image/plugin.js');
+        CKEDITOR.plugins.addExternal('imageresizerowandcolumn', ROOT + '/ckeditor/plugins/imageresizerowandcolumn/plugin.js');
+        CKEDITOR.plugins.addExternal('textindent', ROOT + '/ckeditor/plugins/textindent/plugin.js');
 
         CKEDITOR.replace( 'editor1', {
         	...window.CKeditorConfig,
